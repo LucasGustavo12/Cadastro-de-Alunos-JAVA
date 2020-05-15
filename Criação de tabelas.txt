@@ -1,0 +1,27 @@
+
+CREATE TABLE `tbaluno` (
+  `rgm` int(11) NOT NULL,
+  `nome` varchar(45) DEFAULT NULL,
+  `nascimento` varchar(45) DEFAULT NULL,
+  `cpf` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `endereco` varchar(45) DEFAULT NULL,
+  `municipio` varchar(45) DEFAULT NULL,
+  `uf` varchar(45) DEFAULT NULL,
+  `celular` varchar(45) DEFAULT NULL,
+  `curso` varchar(45) DEFAULT NULL,
+  `campus` varchar(45) DEFAULT NULL,
+  `periodo` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`rgm`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
+CREATE TABLE `tbdisciplina` (
+  `rgm` int(11) NOT NULL,
+  `disciplina` varchar(45) DEFAULT NULL,
+  `semestre` varchar(45) DEFAULT NULL,
+  `nota` varchar(11) DEFAULT NULL,
+  `falta` varchar(11) DEFAULT NULL,
+  KEY `rgm_idx` (`rgm`),
+  CONSTRAINT `rgm_aluno` FOREIGN KEY (`rgm`) REFERENCES `tbaluno` (`rgm`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
